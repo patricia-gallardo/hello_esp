@@ -12,7 +12,11 @@ FetchContent_Declare(
 FetchContent_GetProperties(esp-idf)
 if (NOT esp-idf_POPULATED)
     FetchContent_Populate(esp-idf)
-    execute_process(COMMAND "./install.sh" WORKING_DIRECTORY ${esp-idf_SOURCE_DIR})
+    if (WIN32)
+      execute_process(COMMAND "./install.bat" WORKING_DIRECTORY ${esp-idf_SOURCE_DIR})
+    else ()
+      execute_process(COMMAND "./install.sh" WORKING_DIRECTORY ${esp-idf_SOURCE_DIR})
+    endif ()
 endif ()
 
 set(ENV{IDF_PATH} ${esp-idf_SOURCE_DIR})
