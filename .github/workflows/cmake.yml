@@ -30,8 +30,13 @@ jobs:
     - name: Add toolchain to path
       run: echo "$HOME/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin" >> $GITHUB_PATH
 
-    - name: Add python to path
+    - name: Linux - Add python to path
+      if: startsWith(matrix.conf.os, 'ubuntu')
       run: echo "$HOME/.espressif/python_env/idf4.1_py3.8_env/bin" >> $GITHUB_PATH
+
+    - name: MacOS - Add python to path
+      if: startsWith(matrix.conf.os, 'macos')
+      run: echo "$HOME/.espressif/python_env/idf4.1_py3.9_env/bin" >> $GITHUB_PATH
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{ matrix.cmake-build-type }}
