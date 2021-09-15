@@ -39,9 +39,9 @@ jobs:
 #    C:\Users\runneradmin\.espressif\python_env\idf4.1_py3.7_env\Scripts
 #    D:\a\hello_esp\hello_esp\build\_deps\esp-idf-src\tools
 
-    - name: Windows - Add toolchain to path
-      if: startsWith(matrix.conf.os, 'windows')
-      run: echo "C:\Users\runneradmin\.espressif\tools\xtensa-esp32-elf\esp-2020r3-8.4.0\xtensa-esp32-elf\bin" >> $GITHUB_PATH
+#    - name: Windows - Add toolchain to path
+#      if: startsWith(matrix.conf.os, 'windows')
+#      run: echo "C:\Users\runneradmin\.espressif\tools\xtensa-esp32-elf\esp-2020r3-8.4.0\xtensa-esp32-elf\bin" >> $GITHUB_PATH
 
     - name: MacOS or Linux - Add toolchain to path
       if: startsWith(matrix.conf.os, 'ubuntu') || startsWith(matrix.conf.os, 'macos')
