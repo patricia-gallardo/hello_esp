@@ -16,5 +16,7 @@ endif ()
 
 set(ENV{IDF_PATH} ${esp-idf_SOURCE_DIR})
 
+execute_process(COMMAND install.sh WORKING_DIRECTORY $ENV{IDF_PATH})
+
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(hello-world)
