@@ -12,15 +12,10 @@ FetchContent_Declare(
 FetchContent_GetProperties(esp-idf)
 if (NOT esp-idf_POPULATED)
     FetchContent_Populate(esp-idf)
+    execute_process(COMMAND "./install.sh" WORKING_DIRECTORY ${esp-idf_SOURCE_DIR})
 endif ()
 
 set(ENV{IDF_PATH} ${esp-idf_SOURCE_DIR})
-
-execute_process(COMMAND "./install.sh"
-                WORKING_DIRECTORY $ENV{IDF_PATH}
-#                COMMAND_ECHO STDOUT 
-#                ECHO_OUTPUT_VARIABLE
-                )
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(hello-world)
