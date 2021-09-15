@@ -27,8 +27,24 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Add toolchain to path
-      shell: bash
+#    C:\Users\runneradmin\.espressif\tools\xtensa-esp32-elf\esp-2020r3-8.4.0\xtensa-esp32-elf\bin
+#    C:\Users\runneradmin\.espressif\tools\xtensa-esp32s2-elf\esp-2020r3-8.4.0\xtensa-esp32s2-elf\bin
+#    C:\Users\runneradmin\.espressif\tools\esp32ulp-elf\2.28.51-esp-20191205\esp32ulp-elf-binutils\bin
+#    C:\Users\runneradmin\.espressif\tools\esp32s2ulp-elf\2.28.51-esp-20191205\esp32s2ulp-elf-binutils\bin
+#    C:\Users\runneradmin\.espressif\tools\cmake\3.13.4\bin
+#    C:\Users\runneradmin\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210401\openocd-esp32\bin
+#    C:\Users\runneradmin\.espressif\tools\ninja\1.9.0\
+#    C:\Users\runneradmin\.espressif\tools\idf-exe\1.0.1\
+#    C:\Users\runneradmin\.espressif\tools\ccache\3.7\
+#    C:\Users\runneradmin\.espressif\python_env\idf4.1_py3.7_env\Scripts
+#    D:\a\hello_esp\hello_esp\build\_deps\esp-idf-src\tools
+
+    - name: Windows - Add toolchain to path
+      if: startsWith(matrix.conf.os, 'windows')
+      run: echo "C:\Users\runneradmin\.espressif\tools\xtensa-esp32-elf\esp-2020r3-8.4.0\xtensa-esp32-elf\bin" >> $GITHUB_PATH
+
+    - name: MacOS or Linux - Add toolchain to path
+      if: startsWith(matrix.conf.os, 'ubuntu') || startsWith(matrix.conf.os, 'macos')
       run: echo "$HOME/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin" >> $GITHUB_PATH
 
     - name: Linux - Add python to path
