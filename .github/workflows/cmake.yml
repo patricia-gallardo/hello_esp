@@ -29,6 +29,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install future pyparsing pyelftools
+        pip2 install future pyparsing pyelftools
         pip3 install future pyparsing pyelftools
 
     - name: Add toolchain to path
