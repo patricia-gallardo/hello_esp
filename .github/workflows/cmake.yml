@@ -21,6 +21,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: Set up Python2
+      uses: actions/setup-python@v2
+      with:
+        python-version: '2.7'
+    
     - name: Install Python dependencies
       run: |
         pip install future pyparsing pyelftools
