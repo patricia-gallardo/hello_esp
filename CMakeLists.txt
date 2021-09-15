@@ -18,7 +18,7 @@ set(ENV{IDF_PATH} ${esp-idf_SOURCE_DIR})
 
 execute_process(COMMAND "./install.sh"
                 WORKING_DIRECTORY $ENV{IDF_PATH}
-                COMMAND_ECHO STDOUT 
+#                COMMAND_ECHO STDOUT 
                 ECHO_OUTPUT_VARIABLE)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
