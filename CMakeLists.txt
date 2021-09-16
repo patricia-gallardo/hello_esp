@@ -22,6 +22,7 @@ if (NOT esp-idf_POPULATED)
     else ()
         message(STATUS "Hello World - install dependencies for MacOS/Linux")
         execute_process(COMMAND "./install.sh" WORKING_DIRECTORY ${esp-idf_SOURCE_DIR})
+        execute_process(COMMAND "./export.sh" WORKING_DIRECTORY ${esp-idf_SOURCE_DIR})
     endif ()
 endif ()
 
