@@ -69,6 +69,12 @@ jobs:
       run: echo "$HOME/.espressif/python_env/idf4.1_py3.9_env/bin" >> $GITHUB_PATH
 
     - name: Configure CMake
+      if: startsWith(matrix.conf.os, 'ubuntu') || startsWith(matrix.conf.os, 'macos')
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{ matrix.cmake-build-type }}
+
+    - name: Configure CMake
+      if: startsWith(matrix.conf.os, 'windows')
+      shell: cmd
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{ matrix.cmake-build-type }}
 
     - name: Build
