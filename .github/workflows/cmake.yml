@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: MacOS or Linux - Add toolchain to path
+    - name: Add the toolchain to path
       run: echo "$HOME/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin" >> $GITHUB_PATH
 
     - name: Linux - Add python to path
