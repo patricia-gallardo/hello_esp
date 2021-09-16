@@ -43,6 +43,14 @@ jobs:
       if: startsWith(matrix.conf.os, 'windows')
       run: echo "C:\Users\runneradmin\.espressif\tools\xtensa-esp32-elf\esp-2020r3-8.4.0\xtensa-esp32-elf\bin" >> $GITHUB_PATH
 
+    - name: Windows - Cmake
+      if: startsWith(matrix.conf.os, 'windows')
+      run: echo "C:\Users\runneradmin\.espressif\tools\cmake\3.13.4\bin" >> $GITHUB_PATH
+
+    - name: Windows - openocd
+      if: startsWith(matrix.conf.os, 'windows')
+      run: echo "C:\Users\runneradmin\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210401\openocd-esp32\bin" >> $GITHUB_PATH
+
     - name: Windows - Add python to path
       if: startsWith(matrix.conf.os, 'windows')
       run: echo "C:\Users\runneradmin\.espressif\python_env\idf4.1_py3.7_env\Scripts" >> $GITHUB_PATH
