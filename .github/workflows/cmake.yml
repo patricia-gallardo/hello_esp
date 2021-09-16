@@ -53,7 +53,7 @@ jobs:
 #      if: startsWith(matrix.conf.os, 'windows')
 #      run: echo "C:\Users\runneradmin\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210401\openocd-esp32\bin" >> $GITHUB_PATH
 
-    - name: MacOS or Linux or Windows - Add toolchain to path
+    - name: MacOS or Linux - Add toolchain to path
       if: startsWith(matrix.conf.os, 'ubuntu') || startsWith(matrix.conf.os, 'macos')
       shell: bash
       run: echo "$HOME/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin" >> $GITHUB_PATH
